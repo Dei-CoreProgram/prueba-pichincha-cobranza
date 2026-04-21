@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "5G+IgHHCKkzs+0TszQqJYyMYn9dOystcpYYJdB+hx+4=",
+  "Source": "CobranzaApi",
+  "BasePath": "_content/CobranzaApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
