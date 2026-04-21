@@ -1,0 +1,83 @@
+<div class="container">
+  <h1>Campaña de descuentos - Registro de intención de pago</h1>
+  <p>Formulario para registrar la intención de pago del cliente.</p>
+
+  <form [formGroup]="form" (ngSubmit)="enviar()" class="card">
+    <div class="field">
+      <label>Cliente</label>
+      <select formControlName="codigoCliente">
+        <option value="">Seleccione</option>
+        <option *ngFor="let c of clientes" [value]="c.codigoCliente">
+          {{ c.nombreCompleto }} - {{ c.identificacionCliente }}
+        </option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Operación</label>
+      <select formControlName="operacionId">
+        <option value="">Seleccione</option>
+        <option *ngFor="let o of operaciones" [value]="o.operacionId">
+          {{ o.operacionId }} - Mora: {{ o.mora }} - Estado: {{ o.estado }}
+        </option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Monto propuesto</label>
+      <input type="number" formControlName="montoPropuesto" />
+    </div>
+
+    <div class="field">
+      <label>Plazo en meses</label>
+      <input type="number" formControlName="plazoMeses" />
+    </div>
+
+    <div class="field">
+      <label>Teléfono</label>
+      <input type="text" formControlName="telefono" />
+    </div>
+
+    <div class="field">
+      <label>Correo</label>
+      <input type="email" formControlName="correo" />
+    </div>
+
+    <div class="field">
+      <label>Observación</label>
+      <textarea rows="4" formControlName="observacion"></textarea>
+    </div>
+
+    <button type="submit">Registrar intención de pago</button>
+  </form>
+
+  <div *ngIf="mensaje" class="message">
+    {{ mensaje }}
+  </div>
+
+  <h2>Resumen de clientes</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Identificación</th>
+        <th>Tipo</th>
+        <th>Total operaciones</th>
+        <th>Mayor mora</th>
+        <th>Operación mayor mora</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of clientes">
+        <td>{{ c.codigoCliente }}</td>
+        <td>{{ c.nombreCompleto }}</td>
+        <td>{{ c.identificacionCliente }}</td>
+        <td>{{ c.tipoIdentificacion }}</td>
+        <td>{{ c.totalOperaciones }}</td>
+        <td>{{ c.mayorMora }}</td>
+        <td>{{ c.operacionMayorMora }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
